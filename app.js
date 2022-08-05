@@ -7,7 +7,9 @@ var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(
+    "mongodb+srv://yassine:yassine@galleryproject.ajkqq.mongodb.net/galleryProject?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("connected successfully");
   })

@@ -19,7 +19,7 @@ module.exports = {
             const image = {
               title: req.body.title,
               image: req.file.filename,
-              path: process.env.BASE_URI + "/images/" + req.file.filename,
+              path: "http://localhost:3000" + "/images/" + req.file.filename,
             };
             await Image.create(image);
             await Image.find().then((result) => {
@@ -47,7 +47,7 @@ module.exports = {
       const link = path.join(
         __dirname,
         "../public",
-        image.path.split(process.env.BASE_URI)[1].toString()
+        image.path.split("http://localhost:8080")[1].toString()
       );
       await fs.unlink(link, async (err) => {
         await Image.findByIdAndRemove({ _id: req.params.id }).then(async () => {
