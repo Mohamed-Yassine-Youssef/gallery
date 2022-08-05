@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/api", indexRouter);
 
 app.use(express.static("client/build"));
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`);
 });
 module.exports = app;
